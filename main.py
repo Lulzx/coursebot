@@ -67,6 +67,15 @@ for batched_data in batch_data(data, 499):
         batch.set(doc_ref, data_item)
     batch.commit()
 
+    doc_ref = store.collection(u'COLLECTION_TO_CHECK')
+
+data = []
+
+docs = doc_ref.get()
+for doc in docs:
+    data.append(doc.to_dict())
+print(len(data))
+
 # end of experiments
 
 text = """Hey there !
